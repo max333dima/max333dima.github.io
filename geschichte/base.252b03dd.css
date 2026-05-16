@@ -1,0 +1,488 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 17px;
+}
+
+body {
+	margin: 0;
+	background-image: url("bg.1c475aea.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	--color-text: #fff;
+	--color-bg: #0a0104;
+	--color-link: #5c5c5c;
+	--color-link-hover: #fff;
+	--color-description: #504f4f;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: poynter-oldstyle-display-con, serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: "";
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5, 0.5, 1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--color-link-hover);
+	outline: none;
+}
+
+.hidden {
+	position: absolute;
+	pointer-events: none;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+.frame {
+	padding: 3rem 5vw;
+	text-align: center;
+	position: relative;
+	z-index: 1000;
+	text-transform: uppercase;
+}
+
+.frame__title {
+	font-size: 1rem;
+	margin: 0 0 1rem;
+	font-weight: normal;
+}
+
+.frame__links {
+	display: inline;
+}
+
+.frame__links a:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.frame__heading {
+	margin: 1rem 0;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+.frame__counter {
+	margin: 2rem 0;
+	align-items: baseline;
+	line-height: 0.8rem;
+	text-align: center;
+}
+
+.frame__counter span {
+	margin: 0 0.25rem;
+}
+
+.frame__counter-text:nth-child(2) {
+	margin: 0 1.5rem 0 0;
+}
+
+.frame__counter-number {
+	font-size: 200%;
+}
+
+.intro {
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.intro__title {
+	font-size: 15vw;
+	margin: 0;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.intro__hint {
+	position: relative;
+	text-transform: uppercase;
+	margin: 8vh 0 0 0;
+	font-size: 1.3rem;
+}
+
+.intro__hint::after {
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 2rem;
+	top: calc(100% + 2rem);
+	left: 50%;
+	background-color: currentColor;
+}
+
+.grid-wrap {
+	position: relative;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, calc(390px + 10rem)));
+	justify-content: center;
+	grid-gap: 5vw;
+	margin: 0 auto;
+}
+
+.grid__item {
+	padding: 1.5rem;
+}
+
+.grid__item-number {
+	display: block;
+	text-align: right;
+	font-size: 3rem;
+	line-height: 1;
+}
+
+.grid__item-img {
+	margin: 1rem 0 1.75rem;
+	max-width: 100%;
+	display: block;
+}
+
+.grid__item-title {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 400;
+	margin: 0 0 2.75rem 0;
+}
+
+.grid__item-description {
+	color: #e5e5e5;
+	font-family: news-gothic-std, sans-serif;
+	line-height: 1.5;
+	padding-right: 1rem;
+	font-size: 1.1rem;
+}
+
+.bigimg {
+	display: block;
+	width: 100%;
+	max-width: calc(1025px - 3rem);
+	margin: 25vh auto;
+}
+
+.svgtext {
+	flex: none;
+	position: relative;
+	left: -10%;
+}
+
+.svgtext + .svgtext {
+	margin-top: -3rem;
+}
+
+.svgtext text {
+	fill: #fff;
+	font-size: 42px;
+}
+
+.svgtext--3 text {
+	font-size: 32px;
+}
+
+.svgtext:has(#text-curve1) text {
+	fill: #fcd34d;
+} /* тёплый золотой */
+.svgtext:has(#text-curve11) text {
+	fill: #93c5fd;
+} /* небесно-голубой */
+.svgtext:has(#text-curve2) text {
+	fill: #c4b5fd;
+} /* лавандовый */
+.svgtext:has(#text-curve22) text {
+	fill: #6ee7b7;
+} /* мятный */
+.svgtext:has(#text-curve3) text {
+	fill: #ffb088;
+} /* персиковый */
+.svgtext:has(#text-curve4) text {
+	fill: #fb7185;
+} /* коралловый */
+.svgtext:has(#text-curve5) text {
+	fill: #f0abfc;
+} /* светло-сиреневый */
+
+.svgtext--4 {
+	position: absolute;
+}
+
+.svgtext--4 text {
+	font-size: 48px;
+	fill: #f9e9a4;
+}
+
+/* Mobile-readable plain-text fallback for the three curved SVGs above.
+   Hidden by default (desktop sees the curved SVG version); shown on mobile
+   where the same SVG is too narrow / curved to read. */
+.svgtext-mobile {
+	display: block;
+	margin: 0 0 1rem;
+	padding: 0 1rem;
+	font-family: inherit;
+	font-size: 2rem;
+	line-height: 1.3;
+	font-style: italic;
+	text-align: center;
+}
+.svgtext-mobile--c1 {
+	color: #fcd34d;
+}
+.svgtext-mobile--c11 {
+	color: #93c5fd;
+}
+.svgtext-mobile--c2 {
+	color: #c4b5fd;
+}
+.svgtext-mobile--c22 {
+	color: #6ee7b7;
+}
+.svgtext-mobile--c3 {
+	color: #ffb088;
+}
+.svgtext-mobile--c4 {
+	color: #fb7185;
+}
+.svgtext-mobile--c5 {
+	color: #f0abfc;
+}
+
+.last-text {
+	font-size: 4rem;
+	margin: 0;
+	text-transform: none;
+}
+
+.back-home {
+	position: fixed;
+	top: 1.5rem;
+	right: 1.5rem;
+	z-index: 1000;
+	padding: 0.65rem 1.25rem;
+	font-family: news-gothic-std, sans-serif;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	transition:
+		background-color 0.25s ease,
+		color 0.25s ease,
+		border-color 0.25s ease;
+}
+
+.back-home:hover,
+.back-home:focus {
+	color: #0a0104;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+@media (max-width: 425px) {
+	.back-home {
+		top: 1rem;
+		right: 1rem;
+		padding: 0.5rem 0.9rem;
+		font-size: 0.75rem;
+	}
+}
+
+@media screen and (min-width: 53em) {
+	.frame--screen {
+		position: absolute;
+		text-align: left;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		display: grid;
+		align-content: space-between;
+		width: 100%;
+		max-width: none;
+		height: 100vh;
+		padding: 2.25rem 2.5rem;
+		pointer-events: none;
+		grid-template-columns: 30% 40% 30%;
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+			"heading counter links"
+			"... ... ..."
+			"title title ...";
+	}
+	.frame__title-wrap {
+		grid-area: title;
+		display: flex;
+	}
+	.frame__title {
+		margin: 0 4rem 0 0;
+	}
+	.frame__counter {
+		grid-area: counter;
+		justify-self: center;
+	}
+	.frame__heading {
+		margin: 0;
+		grid-area: heading;
+	}
+	.frame__demos {
+		margin: 0;
+		grid-area: demos;
+		justify-self: end;
+	}
+	.frame__links {
+		padding: 0;
+		justify-self: end;
+	}
+	.frame__links--header {
+		grid-area: links;
+	}
+	.frame a {
+		pointer-events: auto;
+	}
+	.frame__counter {
+		display: flex;
+		margin: 0;
+	}
+	.intro {
+		min-height: 100vh;
+	}
+	.grid__item:nth-child(even) {
+		margin-top: 35vh;
+		text-align: right;
+	}
+	.grid__item:nth-child(even) .grid__item-description {
+		padding: 0 0 0 1rem;
+	}
+	.grid__item-number {
+		font-size: 4.75rem;
+	}
+	.grid-wrap .grid {
+		grid-template-columns: minmax(200px, calc(780px + 10rem));
+	}
+	.grid-wrap .grid__item {
+		margin-top: 0;
+		text-align: left;
+	}
+	.grid-wrap .grid__item-img {
+		width: 100%;
+		max-width: none;
+	}
+	.grid:has(> .grid__item:nth-child(3):last-child) {
+		grid-template-columns: repeat(2, minmax(200px, calc(390px + 10rem)));
+	}
+	.grid:has(> .grid__item:nth-child(3):last-child) > .grid__item:nth-child(1) {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	.grid:has(> .grid__item:nth-child(3):last-child) > .grid__item:nth-child(2) {
+		grid-column: 2;
+		grid-row: 2;
+		margin-top: 0;
+	}
+	.grid:has(> .grid__item:nth-child(3):last-child) > .grid__item:nth-child(3) {
+		grid-column: 1;
+		grid-row: 3;
+	}
+}
+
+@media (max-width: 847px) {
+	.intro {
+		margin-top: 150px;
+	}
+
+	.last-text {
+		font-size: 2rem;
+	}
+
+	.svgtext + .svgtext {
+		margin-top: 0;
+	}
+
+	.intro__hint {
+		margin-top: 3vh;
+		font-size: 1rem;
+	}
+
+	/* Swap all curved SVGs for readable plain text */
+	.svgtext:has(#text-curve1),
+	.svgtext:has(#text-curve11),
+	.svgtext:has(#text-curve2),
+	.svgtext:has(#text-curve22),
+	.svgtext:has(#text-curve3),
+	.svgtext:has(#text-curve4),
+	.svgtext:has(#text-curve5) {
+		display: none;
+	}
+	.svgtext-mobile {
+		display: block;
+	}
+}
+
+@media (max-width: 425px) {
+	.last-text {
+		font-size: 2rem;
+	}
+
+	.intro__hint {
+		font-size: 1rem;
+	}
+}
