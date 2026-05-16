@@ -1,0 +1,585 @@
+/* Main container */
+.vc-container {
+	text-align: center;
+	height: 500px;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+/* Tape elements */
+.vc-tape-wrapper {
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+	-o-perspective: 800px;
+	-ms-perspective: 800px;
+	perspective: 800px;
+}
+.vc-tape {
+	width: 586px;
+	height: 379px;
+	margin: 30px auto 0;
+	position: relative;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.vc-loader {
+	position: absolute;
+	width: 31px;
+	height: 31px;
+	bottom: 50px;
+	left: 50%;
+	margin: -15px 0 0 -15px;
+	background: transparent url(../images/ajax-loader.gif) no-repeat center center;
+	display: none;
+}
+.vc-tape-back {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: transparent url(../images/cs_back.png) no-repeat center center;
+}
+.vc-tape-wheel {
+	width: 125px;
+	height: 125px;
+	position: absolute;
+	top: 110px;
+	background: transparent;
+	border-radius: 50%;
+}
+.vc-tape-wheel-left {
+	left: 109px;
+	box-shadow: 0 0 0 70px #000;
+}
+.vc-tape-wheel-right {
+	right: 113px;
+}
+@-webkit-keyframes rotateLeft {
+	0% {
+		-webkit-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-webkit-transform: rotate(-360deg) translateZ(-1px);
+	}
+}
+@-webkit-keyframes rotateRight {
+	0% {
+		-webkit-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-webkit-transform: rotate(360deg) translateZ(-1px);
+	}
+}
+@-moz-keyframes rotateLeft {
+	0% {
+		-moz-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-moz-transform: rotate(-360deg) translateZ(-1px);
+	}
+}
+@-moz-keyframes rotateRight {
+	0% {
+		-moz-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-moz-transform: rotate(360deg) translateZ(-1px);
+	}
+}
+@-o-keyframes rotateLeft {
+	0% {
+		-o-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-o-transform: rotate(-360deg) translateZ(-1px);
+	}
+}
+@-o-keyframes rotateRight {
+	0% {
+		-o-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-o-transform: rotate(360deg) translateZ(-1px);
+	}
+}
+@-ms-keyframes rotateLeft {
+	0% {
+		-ms-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-ms-transform: rotate(-360deg) translateZ(-1px);
+	}
+}
+@-ms-keyframes rotateRight {
+	0% {
+		-ms-transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		-ms-transform: rotate(360deg) translateZ(-1px);
+	}
+}
+@keyframes rotateLeft {
+	0% {
+		transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		transform: rotate(-360deg) translateZ(-1px);
+	}
+}
+@keyframes rotateRight {
+	0% {
+		transform: rotate(0deg) translateZ(-1px);
+	}
+	100% {
+		transform: rotate(360deg) translateZ(-1px);
+	}
+}
+.vc-tape-wheel div {
+	width: 100%;
+	height: 100%;
+	background: transparent url(../images/cs_wheel.png) no-repeat center center;
+}
+.vc-tape-front {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: transparent url(../images/cs_front.png) no-repeat center center;
+	top: 0px;
+	left: 0px;
+}
+.vc-tape-side-b {
+	display: none;
+	-webkit-transform: rotate3d(0, 1, 0, 180deg);
+	-moz-transform: rotate3d(0, 1, 0, 180deg);
+	-o-transform: rotate3d(0, 1, 0, 180deg);
+	-ms-transform: rotate3d(0, 1, 0, 180deg);
+	transform: rotate3d(0, 1, 0, 180deg);
+}
+
+/* Flip state on desktop — JS toggles .vc-tape-flipped */
+.vc-tape.vc-tape-flipped {
+	transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.vc-tape-front span {
+	color: rgba(0, 0, 0, 0.6);
+	position: absolute;
+	top: 83px;
+	left: 67px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/* Controls list */
+ul.vc-controls {
+	list-style: none;
+	padding: 0;
+	width: 540px;
+	position: absolute;
+	bottom: 18px;
+	left: 50%;
+	margin: 0 0 0 -278px;
+	background: -moz-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0%, rgba(170, 170, 170, 0.35)),
+		color-stop(50%, rgba(255, 255, 255, 0.44)),
+		color-stop(100%, rgba(255, 255, 255, 0.53))
+	);
+	background: -webkit-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -o-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -ms-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: linear-gradient(
+		to bottom,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59aaaaaa', endColorstr='#87ffffff',GradientType=0 );
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom-color: rgba(255, 255, 255, 0.6);
+	padding: 8px;
+	height: 54px;
+	box-shadow:
+		inset 0 1px 0px rgba(0, 0, 0, 0.05),
+		0 1px 0 rgba(255, 255, 255, 0.8),
+		0 -1px 0 rgba(255, 255, 255, 0.4),
+		inset 0 2px 19px rgba(0, 0, 0, 0.05),
+		0 2px 1px rgba(0, 0, 0, 0.06);
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	border-radius: 12px;
+}
+
+/* Controls list items */
+ul.vc-controls li {
+	display: block;
+	float: left;
+	width: 95px;
+	height: 50px;
+	line-height: 55px;
+	text-align: left;
+	padding: 10px;
+	margin: 0;
+	cursor: pointer;
+	background: #ddd url(../images/metal.jpg) no-repeat center top;
+	box-shadow:
+		inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+		inset 0 0 1px 2px rgba(255, 255, 255, 0.9),
+		inset 0 -6px 5px rgba(0, 0, 0, 0.1),
+		0 6px 7px rgba(0, 0, 0, 0.3),
+		0 4px 1px rgba(0, 0, 0, 0.5);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+ul.vc-controls li:first-child {
+	border-radius: 8px 0 0 8px;
+}
+
+ul.vc-controls li:last-child {
+	border-radius: 0px 8px 8px 0px;
+}
+
+ul.vc-controls li.vc-control-play {
+	width: 140px;
+}
+
+/* Control icons */
+ul.vc-controls li span:before {
+	font-size: 16px;
+	line-height: 50px;
+	text-align: center;
+	float: left;
+	color: #444;
+	font-family: "playericons";
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+	font-style: normal;
+	font-weight: normal;
+	text-transform: none;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: 0.2em;
+	text-align: center;
+}
+
+li.vc-control-pause span:before {
+	content: "\50";
+}
+li.vc-control-fforward span:before {
+	content: "\23e9";
+}
+li.vc-control-rewind span:before {
+	content: "\23ea";
+}
+li.vc-control-stop span:before {
+	content: "\25aa";
+}
+li.vc-control-play span:before {
+	content: "\70";
+}
+li.vc-control-switch span:before {
+	content: "\21c4";
+	font-family: Arial, sans-serif;
+}
+li.vc-control-volume-off span:before {
+	content: "ðŸ”‡";
+}
+li.vc-control-volume-down span:before {
+	content: "ðŸ”‰";
+}
+li.vc-control-volume-up span:before {
+	content: "ðŸ”Š";
+}
+
+ul.vc-controls li:hover {
+	box-shadow:
+		inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+		inset 0 0 1px 2px rgba(255, 255, 255, 0.9),
+		inset 0 -10px 15px rgba(0, 0, 0, 0.1),
+		0 6px 7px rgba(0, 0, 0, 0.3),
+		0 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Pressed (active) */
+ul.vc-controls li.vc-control-active {
+	height: 50px;
+	margin-top: 2px;
+	background-image: url(../images/metal_dark.jpg);
+	box-shadow:
+		inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+		inset 0 0 1px 2px rgba(255, 255, 255, 0.5),
+		inset 0 -6px 5px rgba(0, 0, 0, 0.1),
+		0 6px 7px rgba(0, 0, 0, 0.3),
+		0 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Activated */
+ul.vc-controls li.vc-control-pressed,
+ul.vc-controls li.vc-control-active.vc-control-pressed {
+	height: 50px;
+	background-image: url(../images/metal_dark.jpg);
+	margin-top: 4px;
+	box-shadow:
+		inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+		inset 0 0 5px 1px rgba(255, 255, 255, 0.5),
+		inset 0 -10px 15px rgba(0, 0, 0, 0.2),
+		0 7px 5px rgba(255, 255, 255, 0.5);
+}
+
+/* 	
+Background for the volume knob 
+See knobKnob.css for the knob style
+*/
+.vc-volume-wrap {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -400px;
+	background: -moz-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0%, rgba(170, 170, 170, 0.35)),
+		color-stop(50%, rgba(255, 255, 255, 0.44)),
+		color-stop(100%, rgba(255, 255, 255, 0.53))
+	);
+	background: -webkit-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -o-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: -ms-linear-gradient(
+		top,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	background: linear-gradient(
+		to bottom,
+		rgba(170, 170, 170, 0.35) 0%,
+		rgba(255, 255, 255, 0.44) 50%,
+		rgba(255, 255, 255, 0.53) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#59aaaaaa', endColorstr='#87ffffff',GradientType=0 );
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	padding: 8px;
+	box-shadow:
+		inset 0 1px 0px rgba(0, 0, 0, 0.05),
+		0 1px 0 rgba(255, 255, 255, 0.6),
+		0 -1px 0 rgba(255, 255, 255, 0.4),
+		inset 0 2px 19px rgba(0, 0, 0, 0.05),
+		0 2px 1px rgba(0, 0, 0, 0.06);
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* .vc-volume-wrap:after {
+	content: "Lautstärke";
+	margin-top: 15px;
+	display: block;
+} */
+
+/* Text style for controls */
+ul.vc-controls li,
+.vc-volume-wrap:after {
+	font-family: "Aldrich";
+	font-size: 10px;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #666;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Mobile: clean vertical flex stack — cassette, controls, knob — sized to viewport.
+   The cassette artwork is fixed-size (586x379 PNG), so we keep .vc-tape at native size
+   and scale it visually with transform; the wrapper carries the layout-correct height
+   via aspect-ratio, so no negative margins are needed. */
+@media (max-width: 920px) {
+	html,
+	body {
+		overflow-x: hidden;
+	}
+	.vc-container {
+		--scale: 0.85;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 18px;
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 10px 0 30px;
+		position: relative;
+	}
+	.vc-tape-wrapper {
+		width: calc(586px * var(--scale));
+		height: calc(379px * var(--scale));
+		position: relative;
+	}
+	.vc-tape {
+		width: 586px;
+		height: 379px;
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(var(--scale));
+		transform-origin: center;
+	}
+	.vc-tape.vc-tape-flipped {
+		transform: translate(-50%, -50%) scale(var(--scale)) rotate3d(0, 1, 0, 180deg);
+	}
+	/* Controls grid: 3 primary buttons + 2 secondary buttons, no absolute positioning */
+	ul.vc-controls {
+		position: static;
+		left: auto;
+		margin: 0;
+		padding: 10px;
+		width: calc(586px * var(--scale));
+		height: auto;
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+		gap: 10px;
+	}
+	ul.vc-controls li {
+		position: static;
+		float: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: auto;
+		min-width: 0;
+		height: 56px;
+		line-height: 1;
+		padding: 0 10px;
+		margin: 0;
+		text-align: center;
+		border-radius: 12px !important;
+		font-size: 0;
+		overflow: hidden;
+	}
+	ul.vc-controls li span:before {
+		font-size: 22px;
+		line-height: 1;
+		float: none;
+		margin-right: 0;
+	}
+	ul.vc-controls li.vc-control-play {
+		width: auto;
+		grid-column: 2;
+		grid-row: 1;
+	}
+	ul.vc-controls li.vc-control-rewind {
+		grid-column: 1;
+		grid-row: 1;
+	}
+	ul.vc-controls li.vc-control-fforward {
+		grid-column: 3;
+		grid-row: 1;
+	}
+	ul.vc-controls li.vc-control-stop {
+		grid-column: 1 / 3;
+		grid-row: 2;
+	}
+	ul.vc-controls li.vc-control-switch {
+		grid-column: 3 / 4;
+		grid-row: 2;
+	}
+	/* Keep active/pressed states the same height so the grid doesn't jump */
+	ul.vc-controls li.vc-control-active,
+	ul.vc-controls li.vc-control-pressed,
+	ul.vc-controls li.vc-control-active.vc-control-pressed {
+		height: 56px;
+	}
+	.vc-volume-wrap {
+		position: static;
+		left: auto;
+		bottom: auto;
+		margin: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.vc-container {
+		--scale: 0.55;
+		gap: 10px;
+		padding: 4px 0 20px;
+	}
+	ul.vc-controls li,
+	ul.vc-controls li.vc-control-active,
+	ul.vc-controls li.vc-control-pressed,
+	ul.vc-controls li.vc-control-active.vc-control-pressed {
+		height: 50px;
+	}
+	ul.vc-controls li span:before {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 380px) {
+	.vc-container {
+		--scale: 0.5;
+	}
+	ul.vc-controls li,
+	ul.vc-controls li.vc-control-active,
+	ul.vc-controls li.vc-control-pressed,
+	ul.vc-controls li.vc-control-active.vc-control-pressed {
+		height: 46px;
+		padding: 0 6px;
+	}
+	ul.vc-controls li span:before {
+		font-size: 18px;
+	}
+}

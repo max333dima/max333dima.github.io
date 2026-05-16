@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <title>Meine Musik</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2" />
+
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/knobKnob.css" />
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/modernizr.custom.69142.js"></script>
+  </head>
+  <body>
+    <a href="/" class="back-home">Zurück zur Startseite</a>
+    <div class="container">
+      <header>
+        <h1>Meine musikalischen Werke<br />und Bemühungen</h1>
+        <h2>
+          Willkommen in meiner Klangwelt. Das, was ihr hier hört, sind nicht einfach nur Töne – es
+          ist das Echo meiner Gedanken. Jede Melodie, die ihr auf diesem Profil findet, ist das
+          ehrliche Ergebnis meiner musikalischen Arbeit, meiner grenzenlosen Hingabe und zahlloser
+          Momente der Inspiration. Es ist ein Stück meiner Seele, das in Harmonien gegossen wurde.
+        </h2>
+
+        <div class="support-note">
+          <!-- let's check browser support with modernizr -->
+          <span class="no-cssanimations">CSS animations are not supported in your browser</span>
+          <span class="no-csstransforms">CSS transforms are not supported in your browser</span>
+          <span class="no-csstransforms3d"
+            >CSS 3D transforms are not supported in your browser</span
+          >
+          <span class="no-csstransitions">CSS transitions are not supported in your browser</span>
+          <span class="note-ie">Sorry, only modern browsers.</span>
+        </div>
+      </header>
+
+      <div id="vc-container" class="vc-container">
+        <div class="vc-tape-wrapper">
+          <div class="vc-tape">
+            <div class="vc-tape-back">
+              <div class="vc-tape-wheel vc-tape-wheel-left"><div></div></div>
+              <div class="vc-tape-wheel vc-tape-wheel-right"><div></div></div>
+            </div>
+            <div class="vc-tape-front vc-tape-side-a">
+              <span>A</span>
+            </div>
+            <div class="vc-tape-front vc-tape-side-b">
+              <span>B</span>
+            </div>
+          </div>
+        </div>
+        <div class="vc-loader"></div>
+      </div>
+    </div>
+    <!-- //container -->
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    ></script>
+    <!-- KnobKnob by Martin Angelov : https://github.com/martinaglv/KnobKnob -->
+    <script src="js/transform.js"></script>
+    <script src="js/knobKnob.jquery.js"></script>
+
+    <script type="text/javascript" src="js/jquery.cassette.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('#vc-container').cassette({
+          // 3 tracks per side: ids 0–2 → side A, ids 3–5 → side B.
+          // Drop files into songs/ as music-1.mp3 … music-6.mp3 (and/or .ogg).
+          songs: ['music-1', 'music-2', 'music-3', 'music-4', 'music-5', 'music-6'],
+        });
+      });
+    </script>
+  </body>
+</html>
