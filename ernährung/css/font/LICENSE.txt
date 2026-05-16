@@ -1,0 +1,12 @@
+Font license info
+
+
+## Entypo
+
+   Copyright (C) 2012 by Daniel Bruce
+
+   Author:    Daniel Buce
+   License:   SIL (https://scripts.sil.org/OFL)
+   Homepage:  https://www.entypo.com
+
+
